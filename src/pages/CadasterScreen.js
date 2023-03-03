@@ -1,4 +1,4 @@
-import React, {useState, useLayoutEffect} from 'react';
+import React, {useState, useContext, useLayoutEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {
   FormControl,
@@ -12,6 +12,7 @@ import {
   ScrollView,
   useToast,
 } from 'native-base';
+import {AuthContext} from '../contexts/auth';
 
 import FormController from '../components/FormController';
 
@@ -19,11 +20,13 @@ export default function ScheduleScreen() {
   const toast = useToast();
   const navigation = useNavigation();
 
+  const {users, setUsers} = useContext(AuthContext);
+
   const [formData, setData] = useState({
-    name: 'Marcelo Bracet',
-    email: 'marcelo.bracet1@gmail.com',
-    password: 'h14e07c1',
-    confirmPassword: 'h14e07c1',
+    name: 'Simone Alexandre',
+    email: 'simone.alexandre77@gmail.com',
+    password: '051528',
+    confirmPassword: '051528',
   });
 
   const handleSignUp = () => {
@@ -52,6 +55,8 @@ export default function ScheduleScreen() {
           </Box>
         ),
       });
+      // console.log(JSON.stringify(formData, null, 2));
+      setUsers([...users, formData]);
       navigation.navigate('Login');
     }
   };

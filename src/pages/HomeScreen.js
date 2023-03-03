@@ -6,27 +6,26 @@ export default function HomeScreen() {
   const navigation = useNavigation();
 
   return (
-    <Flex flex="1" justifyContent="center" alignItems="center">
+    <Flex
+      flex="1"
+      gap="5"
+      bgColor="#000"
+      justifyContent="center"
+      alignItems="center">
+      <Text fontWeight="bold" fontSize="17" color="#fff">
+        Bem vindo(a) ao atendimento DsaOdonto!
+      </Text>
       <Image
         size={150}
         alt="Brushing teeths image"
         source={require('../assets/escovando.png')}
       />
-      <Text fontSize="16">Você já possui conta?</Text>
+
       <Button
-        onPress={() => navigation.navigate('Login')}
         size="md"
+        w="100%"
+        mt="2"
         colorScheme="fuchsia"
-        w="150"
-        mt="2"
-        variant="subtle">
-        login
-      </Button>
-      <Button
-        size="md"
-        w="150"
-        mt="2"
-        colorScheme="info"
         bottom="5"
         position="absolute"
         variant="subtle"
